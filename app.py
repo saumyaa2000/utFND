@@ -16,7 +16,9 @@ def form():
 @app.route('/userClaimsInput/', methods=['POST'])
 def userClaimsInput():
     QS=request.form['claim']
+    print ("Query string is")
     print QS
+
 
     # sum =int(QS) + int(QS2)
 
