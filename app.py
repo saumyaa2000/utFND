@@ -18,6 +18,22 @@ def userClaimsInput():
     QS=request.form['claim']
     print ("Query string is")
     print QS
+    return render_template('form_action.html', QueryString=QS)
+
+
+
+@app.route('/userClaimsOpinion/', methods=['POST'])
+def userClaimsOpinion():
+    EM = "The numbers should add up to 100!"
+    truePercentage=request.form['trueInput']
+    falsePercentage=request.form['falseInput']
+    uncertainPercentage=request.form['unsureInput']
+    total = int(truePercentage) + int(falsePercentage) + int(uncertainPercentage)
+    if total != 100:
+     return render_template('form_action.html', ErrorMessage=EM)   
+    else:
+        return render_template('form_action.html')
+
 
 
     # sum =int(QS) + int(QS2)
@@ -28,7 +44,6 @@ def userClaimsInput():
     #In string QS, replace every string with a + and then pass it as a parameter to the API (An) 
     # QSNEW= "http://www.cs.utexas.edu/~atn/cgi-bin/api.cgi?claim="+ourstring
     
-    return render_template('form_action.html', QueryString=QS)
-
+    
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=80)

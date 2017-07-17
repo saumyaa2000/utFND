@@ -1,7 +1,7 @@
  <html>
  <head>
     <title>rmapp-result</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    
 </head>
 <body>
     <div id="container">
@@ -30,7 +30,7 @@
 
             <form method="post" action="{{ url_for('userClaimsOpinion') }}">
 
-                <input type="number" style = "background-color: #BF5700; color: white; position: relative; top: -120px; left: 50%;  " name="trueInput" align="right" value="16" /><br />
+                <input type="number" style = "background-color: #BF5700; color: white; position: relative; top: -120px; left: 51%;  " name="trueInput" align="right" value="16" /><br />
                 <div style="text-align:center;">
 
 
@@ -44,7 +44,7 @@
 
 
 
-                        <input type="number" style = "background-color: #BF5700; color: white; position: relative; top: -80px; left: 5.5%;  " name="unsureIput" align="right" value="11" /><br />
+                        <input type="number" style = "background-color: #BF5700; color: white; position: relative; top: -80px; left: 5.5%;  " name="unsureInput" align="right" value="11" /><br />
                         <div style="text-align:center;">
 
 
@@ -64,6 +64,7 @@
                     
                     <br> 
                     <h2 style="position: relative; color: #BF5700; left: 10%;  ">Make sure that the percentages add up to 100!</h2>
+                    <h2 style="position: relative; color: #B33A3A; left: 10%;  "><strong>{{ErrorMessage}}</strong></h2>
 
                     <br>
                     
