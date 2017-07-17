@@ -20,7 +20,8 @@ def userClaimsInput():
     print QS
     return render_template('form_action.html', QueryString=QS)
 
-# Second Page code down below
+# Second Page code down below 
+#Error needs to be fixed using OOP
 
 
 
