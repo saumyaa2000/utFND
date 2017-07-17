@@ -20,6 +20,8 @@ def userClaimsInput():
     print QS
     return render_template('form_action.html', QueryString=QS)
 
+# Second Page code down below
+
 
 
 @app.route('/userClaimsOpinion/', methods=['POST'])
