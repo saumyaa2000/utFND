@@ -1,19 +1,17 @@
 <html>
 <head>
-    <title>rmapp-inputs</title>
-    <!--  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"> -->
-    <style>
+    <title>Fake News Checker</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <!--<style>
     input[type=text], select {
         width: 50%;
         padding: 0px 00px;
         margin: 8px 0;
         display: inline-block;
-
         border-radius: 4px;
-
         position:  relative;
         left: 44%;
-        
         font-size: 20px;
     }
     form input[type=text]{
@@ -31,11 +29,9 @@
         -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
         -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     }
-
     .about{
         display: inline;
     }
-
     a {display: block;
         font-size: 1.28em;
         margin-top: 0.83em;
@@ -43,101 +39,42 @@
         margin-left: 0;
         margin-right: 0;
         font-weight: bold;}
-
-
-        </style>
-        <script type="text/javascript">
-        
-        
-        </script>
-
-    </head>
-
-    <body>
-        <div id="container">
-           <div style="text-align:center;">
-
-            <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/University_of_Texas_at_Austin_seal.svg" alt="Mountain View" style="width:94px;height:78px;position: absolute; top: 0px; left: 0px;">
-            <u> <b><font face="booker" size="100">Fake News Checker</font></b></u>
-
-        </div>
-        <div >
-
-            <h2 class="about" font face="booker" style="position: relative; top: 40px; left: 8%;  ">Sample Claims: </h2>
-            <h2 class="about" font face="booker" style="position: relative; top: 40px; left: 30.5%;  ">Enter the claim which you would like data for down below: </h2>
-
-        </div>
-
-
-
-        <div>
-
-
-            
-          <a font face="booker" style="position: relative; top: 20px; left: 8%;color: #BF5700;" href="#" onclick="document.getElementById('claim').value='Obama is not an American';">Obama is not an American</a>
-
-
-
-
-
-          <form method="post" action="{{ url_for('userClaimsInput') }}">
-
-            <input type="text" style = "color: #BF5700;  z-index:+1 " name="claim" align="right" id="claim" value="Obama is not an American" /><br />
-            <div style="text-align:center;">
-
-
-
-
-
-
-
-
-
-                <br>
-                <input align="right" type="submit" style = "position: relative; left: 8%;  background-color: #BF5700; color: white;  font-size:17pt;" />
-            </form>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </style>
+  -->
+    <script type="text/javascript"></script>
+</head>
+<body>
+  <h1>Fake News Checker</h1>
+  <div class="seal">
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/University_of_Texas_at_Austin_seal.svg" alt="Mountain View" style="width:94px;height:78px;position: absolute; top: 0px; left: 0px;">
+  </div>
+  <div class="form">
+    <div class="samples">
+      <h2 class="about">Sample Claims: </h2>
+      <ul>
+        <li>
+          <a href="#" onclick="document.getElementById('claim').value='Obama is not an American';">Obama is not an American</a>
+        </li>
+        <li>
+          <a href="#" onclick="document.getElementById('claim').value='US National Otto Warmbier died in North Korea';">US National Otto Warmbier died in North Korea</a>
+        </li>
+        <li>
+          <a href="#" onclick="document.getElementById('claim').value='Tesla Cars are not safe to drive';">Tesla Cars are not safe to drive</a>
+        </li>
+      </ul>
     </div>
-
-    <div>
-
-        <a font face="booker" style="position: relative; top: -125px; left: 8%;color: #BF5700;" href="#" onclick="document.getElementById('claim').value='US National Otto Warmbier died in North Korea';">US National Otto Warmbier died in North Korea</a>
-        
+    <div class="submit">
+      <h2 class="about">Enter the claim which you would like data for down below: </h2>
+      <form method="post" action="{{ url_for('userClaimsInput') }}">
+        <input type="text" class="searchbox" name='claim' id='claim'; value='Obama is not an American'>
+        <input type="submit" class="submit-button">
+      </form>
     </div>
-
-    <div>
-        <a font face="booker" style="position: relative; top: -143px; left: 8%;color: #BF5700;" href="#" onclick="document.getElementById('claim').value='Tesla Cars are not safe to drive';">Tesla Cars are not safe to drive</a>
-        
-        
-
-    </div>
-    <div id="content">
-        <h3 style= "position: relative; left: 8%; top: -30px;">
-            This tool produces the validity of a claim after receiving an input by the user. It then returns the validity as percentages of the claim being x% <br> true, y% false, and z% uncertain. It also provides various articles from various sources so that the user may confirm the tool’s findings.<br> Please keep in mind that this tool is not 100% accurate and my generate false outputs at times. Please keep in mind that The University of <br> Texas at Austin does not endorse the veracity of any of the sample claims or any claims entered by the user.
-        </h3>
-        <div>
-            <h3 style= "position: relative; left: 8%;"> To learn more about this project and the individuals who collaborated on it, click the button below!
-            </h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Infobox_info_icon.svg" alt="Mountain View" style="width:50px;height:50px; position: relative;  left: 8%;">
-        </div>
-        <hr> 
-
+  </div>
+    <div class="disclaimer">
+      <p>This tool produces the validity of a claim after receiving an input by the user. It then returns the validity as percentages of the claim being x% true, y% false, and z% uncertain. It also provides various articles from various sources so that the user may confirm the tool’s findings. Please keep in mind that this tool is not 100% accurate and may generate false outputs at times. Please keep in mind that The University of Texas at Austin does not endorse the veracity of any of the sample claims or any claims entered by the user.</p>
+      <p>To learn more about this project and the individuals who collaborated on it, click the button below!</p>
+      <img height="90" width="90" src="{{ url_for('static', filename='Infobox_info_icon.svg') }}" alt="Information">
     </div>
 </body>
 </html>
-
