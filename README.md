@@ -1,6 +1,6 @@
 # utFND
 
-# A Fake News Checker created by students associated with the University of Texas at Austin.
+A Fake News Checker created by students associated with the University of Texas at Austin.
 
 ## To launch for development:
 
