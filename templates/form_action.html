@@ -1,31 +1,23 @@
  
 <!-- This is the users claim opinion entry page Fix align -->
- <html>
- <head>
-    <title>rmapp-result</title>
-    
-</head>
-<body>
-    <div id="container">
-        <div style="text-align:center;">
-
-            <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/University_of_Texas_at_Austin_seal.svg" alt="Mountain View" style="width:94px;height:78px;position: absolute; top: 0px; left: 0px;">
-            <u> <b><font face="booker" size="100">Fake News Checker</font></b></u>
-
-        </div>
-        <br>
-
-        <div id="content">
-            
-            
-            
-            
-            <h2 style="position: relative; color: #BF5700; left: 10%;  ">Claim: "<strong>{{QueryString}}</strong>"</h2>
-            <h2 style="position: relative; left: 10%;  ">What are your opinions on the above claim? Enter your answers below. (Do not<br>include the percentage signs)</h2>
-            <br>
-            <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being true:</h3>
-            <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being false:</h3>
-            <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being inconclusive:</h3>
+<html>
+  <head>
+    <title>Fake News Checker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  </head>
+  <body>
+	  <h1>Fake News Checker</h1>
+    <div class="seal">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/University_of_Texas_at_Austin_seal.svg" alt="Mountain View" style="width:94px;height:78px;position: absolute; top: 0px; left: 0px;">
+    </div>
+      <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Claim: "{{QueryString}}"</h2>
+    <!--
+      <h2 style="position: relative; left: 10%;  ">What are your opinions on the above claim? Enter your answers below. (Do not<br>include the percentage signs)</h2>
+      <br>
+      <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being true:</h3>
+      <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being false:</h3>
+      <h3 style="position: relative; left: 13%;  ">Enter the likelihood of this claim being inconclusive:</h3>
 
 
 
@@ -61,7 +53,8 @@
                     
 
 
-                    <!-- Error  <strong>{{ErrorMessage}}</strong>  Usually this is place holder to display error messages. It is hidden generally unless there is an error. -->
+                     Error  <strong>{{ErrorMessage}}</strong>  Usually this is place holder to display error messages. It is hidden generally unless there is an error. -->
+		     <!--
                     <br>
                     
                     <br> 
@@ -74,5 +67,46 @@
                      
                     </div>
                 </div>
-            </body>
-            </html>
+		-->
+  <div class="likert-scale">
+    <form action="">
+    <label class="statement">What is your opinion on the above claim? Enter your answer below.</label>
+    <br>
+    <br>
+    <ul class='likert'>
+      <li>
+        <input type="radio" name="likert" value="definitely_true">
+        <label>Definitely true.</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="true">
+        <label>Most likely true.</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="unsure">
+        <label>I have no idea.</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="false">
+        <label>Most likely false.</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="definitely_false">
+        <label>Definitely false.</label>
+      </li>
+    </ul>
+    <br>
+    <div class="buttons">
+      <button class="submitter">Submit</button>
+    </div>
+    </form>
+    <br>
+    <p style="text-align: center;"><a href="/#" style="color:#BF5700">Search for another claim.</a></p>
+  </div>
+    <div class="disclaimer">
+      <p>This tool produces the validity of a claim after receiving an input by the user. It then returns the validity as percentages of the claim being x% true, y% false, and z% uncertain. It also provides various articles from various sources so that the user may confirm the tool’s findings. Please keep in mind that this tool is not 100% accurate and may generate false outputs at times. Please keep in mind that The University of Texas at Austin does not endorse the veracity of any of the sample claims or any claims entered by the user.</p>
+      <p>To learn more about this project and the individuals who collaborated on it, click the button below!</p>
+      <img height="90" width="90" src="{{ url_for('static', filename='Infobox_info_icon.svg') }}" alt="Information">
+    </div>
+  </body>
+</html>
