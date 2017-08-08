@@ -3,54 +3,29 @@
     <title>Fake News Checker</title>
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <!--<style>
-    input[type=text], select {
-        width: 50%;
-        padding: 0px 00px;
-        margin: 8px 0;
-        display: inline-block;
-        border-radius: 4px;
-        position:  relative;
-        left: 44%;
-        font-size: 20px;
-    }
-    form input[type=text]{
-        border: 2px solid #aaa;
-        border-radius: 2px;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-        box-sizing: border-box;
-        width: 95%
-        font-size:24px;
-        padding: 1px;
-        margin-bottom: 20px;
-        outline: 0;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-    }
-    .about{
-        display: inline;
-    }
-    a {display: block;
-        font-size: 1.28em;
-        margin-top: 0.83em;
-        margin-bottom: 0.83em;
-        margin-left: 0;
-        margin-right: 0;
-        font-weight: bold;}
-    </style>
-  -->
+    <script src="https://use.fontawesome.com/6f35c618a4.js"></script>
     <script type="text/javascript"></script>
 </head>
 <body>
-  <h1>Fake News Checker</h1>
-  <div class="seal">
-    <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/University_of_Texas_at_Austin_seal.svg" alt="Mountain View" style="width:94px;height:78px;position: absolute; top: 0px; left: 0px;">
-  </div>
-  <div class="form">
-    <div class="samples">
-      <h2 class="about">Sample Claims: </h2>
+  <h1>News Fact Checker</h1>
+  <h2>A Research Prototype Developed at the University of Texas at Austin</h2>
+  <header>
+  <nav>
+    <a href="/#"><i class="fa fa-home" aria-hidden="true" style="color:#BF5700"></i>&nbsp;Home</a>
+    <a href="/about.html"><i class="fa fa-info-circle" aria-hidden="true" style="color:#BF5700"></i>&nbsp;About</a>
+  </nav>
+  </header>
+      <p style="text-align:center;">Enter a Claim</p>
+      <form method="post" action="{{ url_for('userClaimsInput') }}">
+        <input type="text" class="searchbox" name='claim' id='claim'>
+	<br>
+	<div class="buttons">
+          <input type="submit" value="Check Claim" class="submit-button">
+          <input type="submit" value="Try a Random Claim" class="submit-button">
+	</div>
+      </form>
+    <div class="examples">
+      <p>Example Claims:</p>
       <ul>
         <li>
           <a href="#" onclick="document.getElementById('claim').value='Obama is not an American';">Obama is not an American</a>
@@ -63,18 +38,8 @@
         </li>
       </ul>
     </div>
-    <div class="submit">
-      <h2 class="about">Enter the claim which you would like data for down below: </h2>
-      <form method="post" action="{{ url_for('userClaimsInput') }}">
-        <input type="text" class="searchbox" name='claim' id='claim'; value='Obama is not an American'>
-        <input type="submit" class="submit-button">
-      </form>
-    </div>
-  </div>
-    <div class="disclaimer">
+    <footer>
       <p>This tool produces the validity of a claim after receiving an input by the user. It then returns the validity as percentages of the claim being x% true, y% false, and z% uncertain. It also provides various articles from various sources so that the user may confirm the tool’s findings. Please keep in mind that this tool is not 100% accurate and may generate false outputs at times. Please keep in mind that The University of Texas at Austin does not endorse the veracity of any of the sample claims or any claims entered by the user.</p>
-      <p>To learn more about this project and the individuals who collaborated on it, click the button below!</p>
-      <img height="90" width="90" src="{{ url_for('static', filename='Infobox_info_icon.svg') }}" alt="Information">
-    </div>
+    </footer>
 </body>
 </html>
