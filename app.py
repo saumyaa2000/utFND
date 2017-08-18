@@ -3,6 +3,8 @@
 # we'll use url_for to get some URLs for the app on the templates
 from flask import Flask, render_template, request, url_for
 import sys
+import util
+import json
 
 
 # Initialize the Flask application
@@ -23,6 +25,13 @@ def userClaimsInput():
 # Second Page code down below 
 #Error needs to be fixed using OOP
 
+
+@app.route('/results/')
+def results():
+    claim = request.args['claim']
+    res = util.get_res(claim)
+    res_str = json.dumps(res, indent=4, sort_keys=True)
+    return render_template("results.html", res=res_str)
 
 
 @app.route('/userClaimsOpinion/', methods=['POST'])
