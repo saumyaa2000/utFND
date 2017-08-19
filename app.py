@@ -31,7 +31,12 @@ def results():
     claim = request.args['claim']
     res = util.get_res(claim)
     res_str = json.dumps(res, indent=4, sort_keys=True)
-    return render_template("results.html", res=res_str)
+    headlines = [a['headlines'] for a in res['articles']]
+    sources = [a['sources'] for a in res['articles']]
+    n = len(sources)
+
+    return render_template("results.html", res=res_str, headlines=headlines, sources=sources, n=n,\
+        veracity = res['veracity'])
 
 
 @app.route('/userClaimsOpinion/', methods=['POST'])
