@@ -41,6 +41,10 @@ def results():
         veracity=veracity, stances=stances, claim=claim)
 
 
+@app.route('/survey/')
+def survey():
+    return render_template("survey.html")
+
 @app.route('/userClaimsOpinion/', methods=['POST'])
 def userClaimsOpinion():
     EM = "The numbers should add up to 100!"

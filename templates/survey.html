@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fake News Checker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <script src="https://use.fontawesome.com/6f35c618a4.js"></script>
+  <script type="text/javascript"></script>
+</head>
+<body>
+    
+<header>
+<nav>
+<a href="/#"><i class="fa fa-home" aria-hidden="true" style="color:#BF5700"></i>&nbsp;Home</a>
+<a href="/about.html"><i class="fa fa-info-circle" aria-hidden="true" style="color:#BF5700"></i>&nbsp;About</a>
+</nav>
+</header>
+<h1>News Fact Checker</h1>
+<br>
+<br>
+<br>
+
+<div class="container">
+<form action="/#">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-1" style="color: #BF5700"></th>
+        <th class="col-md-1" style="color: #BF5700">Strongly Disagree</th>
+        <th class="col-md-1" style="color: #BF5700">Disagree</th>
+        <th class="col-md-1" style="color: #BF5700">Neutral</th>
+        <th class="col-md-1" style="color: #BF5700">Agree</th>
+        <th class="col-md-1" style="color: #BF5700">Strongly Agree</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> You find this tool useful </td> 
+        <td> <input type="radio" name="useful" vavlue="1"> </td> 
+        <td> <input type="radio" name="useful" vavlue="2"> </td> 
+        <td> <input type="radio" name="useful" vavlue="3"> </td> 
+        <td> <input type="radio" name="useful" vavlue="4"> </td> 
+        <td> <input type="radio" name="useful" vavlue="5"> </td> 
+      </tr>
+
+      <tr>
+        <td> You will recommend this tool to others </td> 
+        <td> <input type="radio" name="rec" vavlue="1"> </td> 
+        <td> <input type="radio" name="rec" vavlue="2"> </td> 
+        <td> <input type="radio" name="rec" vavlue="3"> </td> 
+        <td> <input type="radio" name="rec" vavlue="4"> </td> 
+        <td> <input type="radio" name="rec" vavlue="5"> </td> 
+      </tr>
+  </table>
+
+
+
+<br>
+
+
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+    </div>
+
+
+<div class="buttons">
+      <button class="submitter">Finish</button>
+    </div>
+</form>
+
+</div>
+    
+
+</body>
+</html>
