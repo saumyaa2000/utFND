@@ -7,17 +7,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <script src="https://use.fontawesome.com/6f35c618a4.js"></script>
+  <script type="text/javascript"></script>
 </head>
 <body>
+    
+<header>
+<nav>
+<a href="/#"><i class="fa fa-home" aria-hidden="true" style="color:#BF5700"></i>&nbsp;Home</a>
+<a href="/about.html"><i class="fa fa-info-circle" aria-hidden="true" style="color:#BF5700"></i>&nbsp;About</a>
+</nav>
+</header>
+<h1>News Fact Checker</h1>
+<h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Claim: "{{claim}}"</h2>
+
 
 <div class="container">
-  <h2>Articles</h2>
+  <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Relevant Articles</h2>
   
   <table class="table">
     <thead>
       <tr>
-        <th>Source</th>
-        <th>Headline</th>
+        <th style="color: #BF5700">Source</th>
+        <th style="color: #BF5700">Headline</th>
+        <th style="color: #BF5700">Predicted Stance</th>
       </tr>
     </thead>
     <tbody>
@@ -25,18 +41,46 @@
     	<tr>
     		<td>{{ sources[i] }} </td> 
     		<td> {{ headlines[i] }} </td>
+            <td> 
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{stances[i][0]}}%">
+                        Against
+                    </div>
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:{{stances[i][1]}}%">
+                        Neutral
+                    </div>
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{stances[i][2]}}%">
+                        For
+                    </div>
+                </div>
+
+            </td>
     	</tr>
     	{% endfor %}
     </tbody>
   </table>
+
+<br>
+<br>
+
+<h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; "> Predicted Veracity</h2>
+<div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{veracity[0]}}%">
+        False
+    </div>
+    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:{{veracity[1]}}%">
+        Unknown
+    </div>
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{veracity[2]}}%">
+        True
+    </div>
 </div>
-<br>
-<br>
 
-<div class="panel panel-default">
-    <div class="panel-body">Veracity: {{veracity[0]}} False, {{veracity[1]}} Unknown, {{veracity[2]}} True. </div>
-  </div>
+</div>
 
+    <footer>
+      <p>This tool produces the validity of a claim after receiving an input by the user. It then returns the validity as percentages of the claim being x% true, y% false, and z% uncertain. It also provides various articles from various sources so that the user may confirm the tool’s findings. Please keep in mind that this tool is not 100% accurate and may generate false outputs at times. Please keep in mind that The University of Texas at Austin does not endorse the veracity of any of the sample claims or any claims entered by the user.</p>
+    </footer>
 
 </body>
 </html>

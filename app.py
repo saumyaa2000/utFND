@@ -33,10 +33,12 @@ def results():
     res_str = json.dumps(res, indent=4, sort_keys=True)
     headlines = [a['headlines'] for a in res['articles']]
     sources = [a['sources'] for a in res['articles']]
+    stances = [ [s*100 for s in a['stance'] ] for a in res['articles']]
+    veracity = [v*100 for v in res['veracity']]
     n = len(sources)
 
     return render_template("results.html", res=res_str, headlines=headlines, sources=sources, n=n,\
-        veracity = res['veracity'])
+        veracity=veracity, stances=stances, claim=claim)
 
 
 @app.route('/userClaimsOpinion/', methods=['POST'])
