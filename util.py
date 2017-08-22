@@ -1,6 +1,8 @@
 import urllib
 import urllib2
 import json
+import requests
+import sys
 
 
 def get_res(claim):
