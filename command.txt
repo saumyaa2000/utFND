@@ -1,0 +1,2 @@
+python ~/Downloads/google-cloud-sdk/platform/google_appengine/appcfg.py request_logs . ~/Downloads/app.log -A fcweb-177704 -V 20170823t142351
+gcloud app deploy

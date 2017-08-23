@@ -27,11 +27,11 @@
 <br>
 
 <div class="container">
-<form action="/#">
+<form action="/finish">
   <table class="table">
     <thead>
       <tr>
-        <th class="col-md-1" style="color: #BF5700"></th>
+        <th class="col-md-3" style="color: #BF5700"></th>
         <th class="col-md-1" style="color: #BF5700">Strongly Disagree</th>
         <th class="col-md-1" style="color: #BF5700">Disagree</th>
         <th class="col-md-1" style="color: #BF5700">Neutral</th>
@@ -40,23 +40,34 @@
       </tr>
     </thead>
     <tbody>
+        
       <tr>
-        <td> You find this tool useful </td> 
-        <td> <input type="radio" name="useful" vavlue="1"> </td> 
-        <td> <input type="radio" name="useful" vavlue="2"> </td> 
-        <td> <input type="radio" name="useful" vavlue="3"> </td> 
-        <td> <input type="radio" name="useful" vavlue="4"> </td> 
-        <td> <input type="radio" name="useful" vavlue="5"> </td> 
+        <td> You find this tool easy to use </td> 
+        <td> <input type="radio" name="easy" value="1"> </td> 
+        <td> <input type="radio" name="easy" value="2"> </td> 
+        <td> <input type="radio" name="easy" value="3"> </td> 
+        <td> <input type="radio" name="easy" value="4"> </td> 
+        <td> <input type="radio" name="easy" value="5"> </td> 
+      </tr>
+        
+      <tr>
+        <td> You think this tool has the potential for being useful </td> 
+        <td> <input type="radio" name="useful" value="1"> </td> 
+        <td> <input type="radio" name="useful" value="2"> </td> 
+        <td> <input type="radio" name="useful" value="3"> </td> 
+        <td> <input type="radio" name="useful" value="4"> </td> 
+        <td> <input type="radio" name="useful" value="5"> </td> 
       </tr>
 
+      <!--
       <tr>
         <td> You will recommend this tool to others </td> 
-        <td> <input type="radio" name="rec" vavlue="1"> </td> 
-        <td> <input type="radio" name="rec" vavlue="2"> </td> 
-        <td> <input type="radio" name="rec" vavlue="3"> </td> 
-        <td> <input type="radio" name="rec" vavlue="4"> </td> 
-        <td> <input type="radio" name="rec" vavlue="5"> </td> 
-      </tr>
+        <td> <input type="radio" name="rec" value="1"> </td> 
+        <td> <input type="radio" name="rec" value="2"> </td> 
+        <td> <input type="radio" name="rec" value="3"> </td> 
+        <td> <input type="radio" name="rec" value="4"> </td> 
+        <td> <input type="radio" name="rec" value="5"> </td> 
+      </tr> -->
   </table>
 
 
@@ -65,7 +76,7 @@
 
 
     <div class="form-group">
-      <label for="comment">Comment:</label>
+      <label for="comment">Other comment:</label>
       <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
     </div>
 

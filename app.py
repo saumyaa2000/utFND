@@ -7,6 +7,20 @@ import util
 import json
 import pickle
 import random
+import logging
+
+import logging
+logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
+logger = logging.getLogger()
+
+#fileHandler = logging.FileHandler("app.log")
+#fileHandler.setFormatter(logFormatter)
+#logger.addHandler(fileHandler)
+
+consoleHandler = logging.StreamHandler()
+consoleHandler.setFormatter(logFormatter)
+logger.addHandler(consoleHandler)
+logger.setLevel(logging.INFO)
 
 
 # Initialize the Flask application
@@ -51,6 +65,20 @@ def results():
 @app.route('/survey/')
 def survey():
     return render_template("survey.html")
+
+@app.route('/finish/')
+def finish():
+    useful = request.args.get('useful')
+    easy = request.args.get('easy')
+    comment = request.args.get('comment')
+    
+    log = "[SURVEY] useful=" + useful + ";easy=" + easy + ";comment=" + comment
+    
+    print log
+    logger.info(log)
+    
+    return render_template("finish.html")
+
 
 @app.route('/userClaimsOpinion/', methods=['POST'])
 def userClaimsOpinion():
