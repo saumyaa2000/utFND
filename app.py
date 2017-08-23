@@ -5,6 +5,8 @@ from flask import Flask, render_template, request, url_for
 import sys
 import util
 import json
+import pickle
+import random
 
 
 # Initialize the Flask application
@@ -20,6 +22,11 @@ def userClaimsInput():
     QS=request.form['claim']
     print ("Query string is")
     print QS
+    print request.form["button"]
+    
+    if request.form["button"] == "Try a Random Claim":
+        list_claims = pickle.load(open('list_claim.pkl'))
+        QS = random.choice(list_claims)
     return render_template('form_action.html', QueryString=QS)
 
 # Second Page code down below 
