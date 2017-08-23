@@ -66,6 +66,10 @@ def results():
 def survey():
     return render_template("survey.html")
 
+@app.route('/about/')
+def about():
+    return render_template("about.html")
+
 @app.route('/finish/')
 def finish():
     useful = request.args.get('useful')
