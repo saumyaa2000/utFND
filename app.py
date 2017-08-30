@@ -8,6 +8,7 @@ import json
 import pickle
 import random
 import logging
+import server
 
 import logging
 logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
@@ -50,16 +51,17 @@ def userClaimsInput():
 @app.route('/results/')
 def results():
     claim = request.args['claim']
-    res = util.get_res(claim)
-    res_str = json.dumps(res, indent=4, sort_keys=True)
+    res = server.api_call(claim)
+    #res_str = json.dumps(res, indent=4, sort_keys=True)
     headlines = [a['headlines'] for a in res['articles']]
     sources = [a['sources'] for a in res['articles']]
     stances = [ [s*100 for s in a['stance'] ] for a in res['articles']]
     veracity = [v*100 for v in res['veracity']]
+    rep   = [100*a['reputation'] for a  in res['articles']]
     n = len(sources)
 
-    return render_template("results.html", res=res_str, headlines=headlines, sources=sources, n=n,\
-        veracity=veracity, stances=stances, claim=claim)
+    return render_template("results.html", headlines=headlines, sources=sources, n=n,\
+        veracity=veracity, stances=stances, claim=claim, rep=rep)
 
 
 @app.route('/survey/')

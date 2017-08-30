@@ -1,2 +1,12 @@
-Flask==0.12
+Flask==0.12.2
+gunicorn==19.7.1
+gensim
+google_api_python_client
+nltk
+repoze.lru
 requests
+pandas
+numpy
+scipy
+lxml
+sklearn

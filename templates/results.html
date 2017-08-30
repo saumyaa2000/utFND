@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Fake News Checker</title>
+  <title>News Fact Checker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,23 +23,33 @@
 </header>
 <h1>News Fact Checker</h1>
 <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Claim: "{{claim}}"</h2>
-
+<p style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">(Click or hover over <i class="glyphicon glyphicon-question-sign"></i> for help )</p>
 
 <div class="container">
-  <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Relevant Articles</h2>
+  <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Relevant Articles <a href="#" title="Relevant Articles" data-toggle="popover" data-trigger="focus hover" data-content="We put the claim into Google to find these articles"><i class="glyphicon glyphicon-question-sign"></i></a> </h2>
+
+  
+
   
   <table class="table">
     <thead>
       <tr>
-        <th class="col-md-1" style="color: #BF5700">Source</th>
+        <th class="col-md-1" style="color: #BF5700">Source <a href="#" title="Source" data-toggle="popover" data-trigger="focus hover" data-content="The website that publishes the article"><i class="glyphicon glyphicon-question-sign"></i></a> </th>
+        <th class="col-md-1" style="color: #BF5700">Predicted Reputation <a href="#" title="Predicted Reputation" data-toggle="popover" data-trigger="focus hover" data-content="We predict how often articles published by a source is reliable"><i class="glyphicon glyphicon-question-sign"></i></a> </th>
         <th class="col-md-3" style="color: #BF5700">Headline</th>
-        <th class="col-md-1" style="color: #BF5700">Predicted Stance</th>
+        <th class="col-md-1" style="color: #BF5700">Predicted Stance <a href="#" title="Predicted Stance" data-toggle="popover" data-trigger="focus hover" data-content="We predict whether an article is for, against or neutral with respect to the claim"><i class="glyphicon glyphicon-question-sign"></i></a> </th>
       </tr>
     </thead>
     <tbody>
       	{% for i  in range(0,n) %}
     	<tr>
     		<td>{{ sources[i] }} </td> 
+        <td>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:{{rep[i]}}%"> </div>
+            </div>
+        </td>
+
     		<td> {{ headlines[i] }} </td>
             <td> 
                 <div class="progress">
@@ -63,7 +73,7 @@
 <br>
 <br>
 
-<h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; "> Predicted Veracity</h2>
+<h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; "> Predicted Correctness <a href="#" title="Predicted Correctness" data-toggle="popover"  data-trigger="focus hover" data-content="Based on the above articles (with their stances and source reputation), we predict the correctness of the claim"><i class="glyphicon glyphicon-question-sign"></i></a> </h2>
 <br>
 <div class="progress">
     <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{veracity[0]}}%">
@@ -84,11 +94,7 @@
         <button class="submitter">Check another claim</button>
     </div>
 </form>
-<form action="/survey">
-    <div class="buttons">
-        <button class="submitter">Continue to Survey</button>
-    </div>
-</form>
+
 
 
 </div>
@@ -98,6 +104,12 @@
 </footer>
 
 
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
 
 </body>
 </html>
