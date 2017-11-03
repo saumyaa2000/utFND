@@ -7,14 +7,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <script src="https://use.fontawesome.com/6f35c618a4.js"></script>
   <script type="text/javascript"></script>
+
+  <script type="text/javascript" src="/path/to/jquery.tablesorter.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $(function(){
+      $("#mytable").tablesorter();
+            });
+          });
+  </script>
+
 </head>
 <body>
-    
+
 <header>
 <nav>
 <a href="/#"><i class="fa fa-home" aria-hidden="true" style="color:#BF5700"></i>&nbsp;Home</a>
@@ -28,10 +38,10 @@
 <div class="container">
   <h2 style="position: relative; color: #BF5700; text-align: center; margin-top: 50px; ">Relevant Articles <a href="#" title="Relevant Articles" data-toggle="popover" data-trigger="focus hover" data-content="We put the claim into Google to find these articles"><i class="glyphicon glyphicon-question-sign"></i></a> </h2>
 
-  
 
-  
-  <table class="table">
+
+
+  <table class="table" id="mytable">
     <thead>
       <tr>
         <th class="col-md-1" style="color: #BF5700">Source <a href="#" title="Source" data-toggle="popover" data-trigger="focus hover" data-content="The website that publishes the article"><i class="glyphicon glyphicon-question-sign"></i></a> </th>
@@ -43,7 +53,7 @@
     <tbody>
       	{% for i  in range(0,n) %}
     	<tr>
-    		<td>{{ sources[i] }} </td> 
+    		<td>{{ sources[i] }} </td>
         <td>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width:{{rep[i]}}%"> </div>
@@ -51,7 +61,7 @@
         </td>
 
     		<td> {{ headlines[i] }} </td>
-            <td> 
+            <td>
                 <div class="progress">
                     <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{stances[i][0]}}%">
                         Against
@@ -107,7 +117,7 @@
 
 <script>
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
+    $('[data-toggle="popover"]').popover();
 });
 </script>
 
