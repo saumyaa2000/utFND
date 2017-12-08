@@ -52,7 +52,7 @@
     </thead>
     <tbody>
       	{% for i  in range(0,n) %}
-    	<tr>
+    	<tr class="accordion-toggle" data-toggle="collapse" data-target="articlePage">
     		<td>{{ sources[i] }} </td>
         <td>
             <div class="progress">
@@ -76,6 +76,11 @@
 
             </td>
     	</tr>
+      <tr>
+        <td class="accordion-body collapse" id="articlePage">
+          <iframe src="https://en.wikipedia.org/wiki/Lorem_ipsum"></iframe>
+        </td>
+      </tr>
     	{% endfor %}
     </tbody>
   </table>
